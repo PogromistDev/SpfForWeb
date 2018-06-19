@@ -44,11 +44,11 @@ function render(item)
         var length = dataView.getInt32(offset, true);
         offset += 4;
 
-        var r, g, b, t;
+        var r, g, b, a;
         r = dataView.getUint8(offset);
         g = dataView.getUint8(offset + 1);
         b = dataView.getUint8(offset + 2);
-        t = dataView.getUint8(offset + 3);
+        a = dataView.getUint8(offset + 3);
 
         for (x; x < off + length; x++)
         {
@@ -58,7 +58,7 @@ function render(item)
             imageData.data[x * 4] = r;
             imageData.data[x * 4 + 1] = g;
             imageData.data[x * 4 + 2] = b;
-            imageData.data[x * 4 + 3] = 255;
+            imageData.data[x * 4 + 3] = a;
         }
 
         offset += 4;
